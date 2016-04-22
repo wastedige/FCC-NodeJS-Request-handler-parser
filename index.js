@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 
   response.send({
     Address: request.ip,
-    OS:  os.type() + " " + os.release() + " " + os.arch(),
+    OS:  request.headers['user-agent'].split('(')[1].split(')')[0],
     language: request.headers['accept-language'].split(",")[0]
   });
 });
